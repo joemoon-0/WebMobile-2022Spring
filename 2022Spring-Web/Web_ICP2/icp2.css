@@ -1,0 +1,23 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.center {
+  text-align: center;
+}
+
+.visual-container {
+  border: 4px solid cornflowerblue;
+  margin: 3em 0;
+  padding: 2em;
+}
+
+ol > li {
+  font-size: large;
+}
