@@ -3,6 +3,28 @@ body {
   color: #fff;
 }
 
+#banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: lightblue;
+  color: #000;
+}
+
+#eyes {
+    height: 3em;
+}
+
+#img-reel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #wrapper {
   margin: 0 auto;
   width: 75%;
@@ -10,6 +32,18 @@ body {
 
 .center {
   text-align: center;
+}
+
+.inline {
+    display: inline;
+    margin: 0 2em;
+}
+
+.sub-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .visual-container {
@@ -20,4 +54,13 @@ body {
 
 ol > li {
   font-size: large;
+}
+
+ul > li {
+    list-style-type:none;
+}
+
+li > img {
+    height: 8em;
+
 }
