@@ -1,6 +1,6 @@
-#ICP 1 - GitHub and WebStorm
+# ICP 1 - GitHub and WebStorm
 
-###ICP Group 7
+### ICP Group 7
 
 Joe Moon
 jmn5y@umsystem.edu
