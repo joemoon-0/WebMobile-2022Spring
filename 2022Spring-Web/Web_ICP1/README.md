@@ -2,9 +2,9 @@
 
 ### ICP Group 7
 
-Joe Moon
+Joe Moon <br>
 jmn5y@umsystem.edu
 
-Nathan Cheney
-ncxn8@umsystem.edu
+Nathan Cheney <br>
+ncxn8@umsystem.edu <br>
 https://github.com/nathancheney/Web-Mobile-Programming
