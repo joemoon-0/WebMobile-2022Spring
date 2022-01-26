@@ -8,3 +8,6 @@ jmn5y@umsystem.edu
 Nathan Cheney <br>
 ncxn8@umsystem.edu <br>
 https://github.com/nathancheney/Web-Mobile-Programming
+
+## In-Class Programming (ICP) Description
+
