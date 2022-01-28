@@ -11,14 +11,14 @@ https://github.com/nathancheney/Web-Mobile-Programming
 
 ## In-Class Programming (ICP) Description
 
-HTML & CSS Task
-1.	Create an HTML document named "index.html".
-2.	The page should contain 
-•	paragraphs
-•	Headings
-•	unordered list
-•	ordered list
-•	at least two div & span elements
-•	at least four block and inline elements
-•	images at appropriate locations in the HTML file and should be clickable, i.e., when you click the image, it should redirect you to the location of the image in a new tab
-•	any relevant video/YouTube video. The video should have controls like play, pause, etc.
+HTML & CSS Task <br>
+1.	Create an HTML document named "index.html". <br>
+2.	The page should contain  <br>
+•	paragraphs <br>
+•	Headings <br>
+•	unordered list <br>
+•	ordered list <br>
+•	at least two div & span elements <br>
+•	at least four block and inline elements <br>
+•	images at appropriate locations in the HTML file and should be clickable, i.e., when you click the image, it should redirect you to the location of the image in a new tab <br>
+•	any relevant video/YouTube video. The video should have controls like play, pause, etc. <br>
