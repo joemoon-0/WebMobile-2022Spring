@@ -1,0 +1,37 @@
+a {
+  color: #747704;
+  text-decoration: none;
+  font-family: "Play", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+hr {
+  border: 3px #bcbbbb solid;
+}
+
+#banner {
+  width: 100%;
+  object-fit: contain;
+}
+
+#featured-work > div > img {
+  height: 80%;
+}
+
+.header-text {
+  color: #747704;
+  font-family: "Lato", sans-serif;
+}
+
+.title-text {
+  color: #747704;
+  font-family: "Play", sans-serif;
+}
+
+.sub-text {
+  color: #bcbbbb;
+  font-family: "Play", sans-serif;
+  font-weight: 300;
+  font-size: 2.5em;
+}
