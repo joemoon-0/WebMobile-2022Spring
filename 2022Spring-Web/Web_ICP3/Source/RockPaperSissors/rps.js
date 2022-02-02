@@ -1,3 +1,7 @@
+// Joe Moon
+// ICP 3 - Responsive Web Design & JavaScipt
+// CSEE5590-0003
+
 const hands = ["rock", "paper", "scissor"];
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
@@ -9,11 +13,13 @@ let resultMsg = document.getElementById("result");
 let userScore = 0;
 let compScore = 0;
 
+// Random hand generation for the computer
 let compDraw = () => {
   let num_hands = 3; // three possible hands
   return Math.floor(Math.random() * num_hands);
 };
 
+// Game engine - executed on user event
 let play = (e) => {
   let result = "";
   let comp_hand = compDraw();
@@ -50,6 +56,7 @@ let play = (e) => {
   updateScore(result);
 };
 
+// Display the computer's hand onto UI
 let compDisplay = (hand) => {
   switch (hand) {
     case 0:
@@ -67,6 +74,7 @@ let compDisplay = (hand) => {
   }
 };
 
+// Update score after each round and publish result
 let updateScore = (result) => {
   if (result === "win") {
     userScore++;
