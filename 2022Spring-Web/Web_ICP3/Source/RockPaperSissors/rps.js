@@ -30,23 +30,24 @@ let play = (e) => {
   if (user_hand === comp_hand) {
     result = "tie";
   }
-
-  switch (user_hand) {
-    case 0: // user_hand = rock
-      if (comp_hand === hands.indexOf("paper")) {
-        result = "lose";
-      }
-      break;
-    case 1: // user_hand = paper
-      if (comp_hand === hands.indexOf("scissor")) {
-        result = "lose";
-      }
-      break;
-    case 2: // user_hand = scissor
-      if (comp_hand === hands.indexOf("rock")) {
-        result = "lose";
-      }
-      break;
+  else {
+    switch (user_hand) {
+        case 0: // user_hand = rock
+        if (comp_hand === hands.indexOf("paper")) {
+            result = "lose";
+        }
+        break;
+        case 1: // user_hand = paper
+        if (comp_hand === hands.indexOf("scissor")) {
+            result = "lose";
+        }
+        break;
+        case 2: // user_hand = scissor
+        if (comp_hand === hands.indexOf("rock")) {
+            result = "lose";
+        }
+        break;
+    }
   }
 
   if (result === "") {
