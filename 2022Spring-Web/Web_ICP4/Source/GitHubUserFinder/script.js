@@ -11,7 +11,6 @@ function getGithubInfo(user) {
 
 function showUser(user) {
   //2. set the contents of the h2 and the two div elements in the div '#profile' with the user content
-  console.log(user);
   $("#profile h2").text(`Github profile information for ${user.login}`);
 
   // Display user avatar
@@ -19,6 +18,8 @@ function showUser(user) {
   $("#avatar").attr("src", `${user.avatar_url}`);
 
   // Display user information
+  $("#userInfo").empty();
+  $(".information").css("border", "3px solid #000");
   $("#userInfo").append(`<li>User Name: ${user.name}</li>`);
   $("#userInfo").append(`<li>Location: ${user.location}</li>`);
   $("#userInfo").append(`<li>Biography: ${user.bio}</li>`);
