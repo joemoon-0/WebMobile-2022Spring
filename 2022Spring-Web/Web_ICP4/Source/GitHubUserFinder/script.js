@@ -2,29 +2,28 @@ function getGithubInfo(user) {
   //1. Create an instance of XMLHttpRequest class and send a GET request using it.
   // The function should finally return the object(it now contains the response!)
 
-  fetch(`https://api.github.com/users/${user}`)
-    .then((response) => response.json())
-    .then((data) => showUser(data))
-    .catch((error) => console.log(error));
-  /*
-  $.ajax({
-    type: "GET",
-    dataType: "json",
-    url: "https://api.github.com/users",
-    data: { token: user },
-  })
-    .done(function (data) {
-      console.log(data);
-    })
-    .fail(function (data) {
-      console.log(data);
-    });
-    */
+  const url = `https://api.github.com/users/${user}`;
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", url, false);
+  xmlhttp.send();
+  return xmlhttp;
 }
 
 function showUser(user) {
   //2. set the contents of the h2 and the two div elements in the div '#profile' with the user content
   console.log(user);
+  $("#profile h2").text(`Github profile information for ${user.login}`);
+
+  // Display user avatar
+  $(".avatar").html("<img src='' alt='avatar image' id='avatar' />");
+  $("#avatar").attr("src", `${user.avatar_url}`);
+
+  // Display user information
+  $("#userInfo").append(`<li>User Name: ${user.name}</li>`);
+  $("#userInfo").append(`<li>Location: ${user.location}</li>`);
+  $("#userInfo").append(`<li>Biography: ${user.bio}</li>`);
+  $("#userInfo").append(`<li>Email: ${user.email}</li>`);
+  $("#userInfo").append(`<li><a href=${user.html_url}>Go to profile</a></li>`);
 }
 
 function noSuchUser(username) {
