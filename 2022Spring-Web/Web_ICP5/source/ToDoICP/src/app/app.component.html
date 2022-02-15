@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <!-- // 1. write Typescript code in "app.component.ts" to work with ToDo list -->
+  </head>
+  <body>
+    <!-- // 2. write html(view) code to display the ToDos -->
+    <input
+      type="text"
+      [(ngModel)]="task"
+      name="task"
+      id="user-task"
+      placeholder="Add a task"
+    />
+    <input type="submit" (click)="submitNewItem(task)" value="Add" />
+
+    <div *ngFor="let task of items">
+      <div class="task-list">
+        <input type="checkbox" (click)="completeItem(task)" />
+        {{ task }}
+        <input type="button" (click)="deleteItem(task)" value="Delete" />
+      </div>
+    </div>
+  </body>
+</html>
