@@ -1,3 +1,13 @@
 .task-list {
-  color: blue;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 50%;
+  margin: 0 auto;
+}
+
+.completed {
+  text-decoration: line-through;
 }

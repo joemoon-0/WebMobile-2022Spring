@@ -7,33 +7,37 @@ import { TaskInterface } from './Task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  
   // task data
   task: TaskInterface;
-  description: string;
+  taskId: number = 0;
 
-  // define list of items
-  items= [];
+  // array for task objects
+  items = [];
 
   // Write code to push new item
-  submitNewItem(description: string) {
-    console.log("submit");
-    this.task.id = this.items.length;
-    this.task.description = description;
-    this.task.completed = false;
-    this.items.push(this.task);
+  submitNewItem(newTask: TaskInterface) {
+    console.log("submitted");   
+    
+    // Assign ID to new task
+    newTask.id = this.taskId;
+    this.taskId++;
+
+    this.items.push(newTask);
+    console.log(newTask)
   }
 
   // Write code to complete item
-  completeItem(item) {
-    
-    console.log("completeItem");
+  completeItem(item: TaskInterface) {
+    item.completed = !item.completed;
   }
 
   // Write code to delete item
-  deleteItem() {
-    // const index = this.items.indexOf(task);
-    // this.items.splice(index, 1);
+  deleteItem(item) {
+    const index = this.items.indexOf(item);
+    this.items.splice(index, 1);
+    console.log(this.items);
   }
+  
 
 }

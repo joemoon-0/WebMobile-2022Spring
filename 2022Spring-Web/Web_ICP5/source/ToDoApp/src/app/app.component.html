@@ -2,30 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Calculator</title>
+    <title>Task App</title>
     <!-- // 1. write Typescript code in "app.component.ts" to work with ToDo list -->
   </head>
   <body>
     <!-- // 2. write html(view) code to display the ToDos -->
-    <input
-      type="text"
-      [(ngModel)]="description"
-      name="task"
-      id="user-task"
-      placeholder="Add a task"
-    />
-    <input type="submit" (click)="submitNewItem(description)" value="Add" />
-    <app-tasks></app-tasks>
-    <div *ngFor="let item of items">
-      <div class="task-list">
-        <input
-          type="checkbox"
-          (click)="completeItem(item)"
-          checked="{{ item.completed }}"
-        />
-        <!-- {{ item.id }}. {{ item.description }} -->
-        <input type="button" (click)="deleteItem()" value="Delete" />
-      </div>
+
+    <!-- Component for adding tasks to the list -->
+    <app-task-input (addTaskEvent)="submitNewItem($event)"></app-task-input>
+
+    <!-- Print all existing tasks to UI -->
+    <div class="task-list" *ngFor="let item of items">
+      <input type="checkbox" (click)="completeItem(item)" />
+      <div
+        *ngIf="item.completed; then completedTask; else incompleteTask"
+      ></div>
+
+      <ng-template #completedTask>
+        <div>
+          <span class="completed">{{ item.description }}</span>
+        </div>
+      </ng-template>
+
+      <ng-template #incompleteTask>
+        <div>
+          <span>{{ item.description }}</span>
+        </div>
+      </ng-template>
+
+      <input type="button" (click)="deleteItem(item)" value="Delete" />
     </div>
+
+    <!-- <app-tasks></app-tasks> -->
   </body>
 </html>

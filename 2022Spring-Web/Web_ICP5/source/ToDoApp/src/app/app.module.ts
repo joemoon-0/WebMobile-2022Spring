@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskInputComponent } from './components/task-input/task-input.component';
+import { ClockComponent } from './components/clock/clock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TasksComponent
+    TasksComponent,
+    TaskInputComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
