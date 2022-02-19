@@ -1,13 +1,34 @@
+body {
+  padding: 2em 0;
+}
+
+div.row {
+  margin: 0.5em 0;
+  padding: 1em;
+}
+
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+}
+
 .task-list {
   color: #000;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
+  font-size: 1.5em;
+  font-weight: 400;
   width: 50%;
-  margin: 0 auto;
+  margin: 1em auto;
+  padding: 0.5em;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+.hide {
+  display: none;
 }

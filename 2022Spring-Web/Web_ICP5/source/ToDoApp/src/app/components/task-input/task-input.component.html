@@ -1,3 +1,15 @@
-<h2>Add a new task to the list</h2>
-<input type="text" [(ngModel)]="text" id="user-task" />
-<button type="button" (click)="newItem(text)">Add New Task</button>
+<div class="row">
+  <div class="col text-center">
+    <h2>Add a new task to the list</h2>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <input type="text" [(ngModel)]="text" id="user-task" class="newTaskField" />
+  </div>
+  <div class="col-4">
+    <button class="btn-primary" type="button" (click)="newItem(text)">
+      Add New Task
+    </button>
+  </div>
+</div>

@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskInputComponent } from './components/task-input/task-input.component';
 import { ClockComponent } from './components/clock/clock.component';
+import { TimeSetterComponent } from './components/time-setter/time-setter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
     TaskInputComponent,
-    ClockComponent
+    ClockComponent,
+    TimeSetterComponent
   ],
   imports: [
     BrowserModule,

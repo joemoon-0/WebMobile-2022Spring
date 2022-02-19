@@ -1,0 +1,33 @@
+<div class="row text-center">
+  <div class="col">
+    <h2>Set a time to finish your tasks</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <label for="date">Choose a Date</label>
+    <input
+      type="date"
+      name="date"
+      id="date"
+      [(ngModel)]="date"
+      min="{{ this.minDate }}"
+      required
+    />
+  </div>
+  <div class="col">
+    <label for="time">Choose a Time</label>
+    <input type="time" name="time" id="time" [(ngModel)]="time" required />
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <button
+      type="button"
+      (click)="newTimer(date, time)"
+      class="btn btn-success"
+    >
+      Start Timer
+    </button>
+  </div>
+</div>

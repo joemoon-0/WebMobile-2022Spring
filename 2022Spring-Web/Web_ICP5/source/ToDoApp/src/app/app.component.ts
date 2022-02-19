@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskInterface } from './Task';
+import { TimerInterface } from './Timer';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +10,22 @@ import { TaskInterface } from './Task';
 export class AppComponent {
   
   // task data
-  task: TaskInterface;
   taskId: number = 0;
 
   // array for task objects
   items = [];
 
+  // timer data
+  userDate: TimerInterface;
+
   // Write code to push new item
   submitNewItem(newTask: TaskInterface) {
-    console.log("submitted");   
-    
     // Assign ID to new task
     newTask.id = this.taskId;
     this.taskId++;
 
+    // Add new task to array
     this.items.push(newTask);
-    console.log(newTask)
   }
 
   // Write code to complete item
@@ -33,11 +34,18 @@ export class AppComponent {
   }
 
   // Write code to delete item
-  deleteItem(item) {
+  deleteItem(item: TaskInterface) {
     const index = this.items.indexOf(item);
     this.items.splice(index, 1);
-    console.log(this.items);
   }
   
+  startClock(newTimer: TimerInterface) {
+    this.userDate = newTimer;
+    this.clearClock();
+  }
 
+  clearClock() {
+    document.getElementById("time-set").classList.toggle('hide');
+    document.getElementById("countdownTimer").classList.toggle('hide');
+  }
 }

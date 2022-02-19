@@ -3,36 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <title>Task App</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <!-- // 1. write Typescript code in "app.component.ts" to work with ToDo list -->
   </head>
   <body>
     <!-- // 2. write html(view) code to display the ToDos -->
 
-    <!-- Component for adding tasks to the list -->
-    <app-task-input (addTaskEvent)="submitNewItem($event)"></app-task-input>
-
-    <!-- Print all existing tasks to UI -->
-    <div class="task-list" *ngFor="let item of items">
-      <input type="checkbox" (click)="completeItem(item)" />
-      <div
-        *ngIf="item.completed; then completedTask; else incompleteTask"
-      ></div>
-
-      <ng-template #completedTask>
-        <div>
-          <span class="completed">{{ item.description }}</span>
+    <div class="container">
+      <!-- Component for adding tasks to the list -->
+      <div class="row border border-dark">
+        <div class="col">
+          <app-task-input
+            (addTaskEvent)="submitNewItem($event)"
+          ></app-task-input>
         </div>
-      </ng-template>
+      </div>
+      <div class="row border border-dark">
+        <div class="col">
+          <h2 class="text-center">Task List</h2>
+          <!-- Print all existing tasks to UI -->
+          <div class="task-list border border-dark" *ngFor="let item of items">
+            <input type="checkbox" (click)="completeItem(item)" />
+            <div
+              *ngIf="item.completed; then completedTask; else incompleteTask"
+            ></div>
 
-      <ng-template #incompleteTask>
-        <div>
-          <span>{{ item.description }}</span>
+            <!-- Display crossed out task depending on completion -->
+            <ng-template #completedTask>
+              <div>
+                <span class="completed">{{ item.description }}</span>
+              </div>
+            </ng-template>
+
+            <ng-template #incompleteTask>
+              <div>
+                <span>{{ item.description }}</span>
+              </div>
+            </ng-template>
+
+            <input
+              type="button"
+              (click)="deleteItem(item)"
+              value="Delete"
+              class="btn-danger"
+            />
+          </div>
         </div>
-      </ng-template>
+      </div>
 
-      <input type="button" (click)="deleteItem(item)" value="Delete" />
+      <!-- <app-tasks></app-tasks> -->
+
+      <!-- COUNT DOWN TIMER -->
+      <div class="row border border-dark">
+        <div class="col">
+          <app-time-setter
+            id="time-set"
+            (addTimerEvent)="startClock($event)"
+          ></app-time-setter>
+        </div>
+      </div>
+      <div class="row border border-dark">
+        <div class="col">
+          <app-clock
+            id="countdownTimer"
+            class="hide"
+            [userDate]="userDate"
+            (clearTimerEvent)="clearClock()"
+          ></app-clock>
+        </div>
+      </div>
     </div>
 
-    <!-- <app-tasks></app-tasks> -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -10,7 +10,7 @@ export class TaskInputComponent implements OnInit {
   @Input() text: string;
   @Output() addTaskEvent: EventEmitter<TaskInterface> = new EventEmitter();
 
-  id: number = 0;
+  id: number = 0; // updated in app.component.ts
   description: string;
   completed: boolean = false;
 
@@ -26,5 +26,6 @@ export class TaskInputComponent implements OnInit {
       completed: this.completed
     }
     this.addTaskEvent.emit(newTask);
+    this.text = "";   // clear text box after entry
   }
 }

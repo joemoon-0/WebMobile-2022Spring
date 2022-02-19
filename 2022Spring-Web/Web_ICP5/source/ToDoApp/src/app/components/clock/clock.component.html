@@ -1,1 +1,47 @@
-<p>clock works!</p>
+<div class="row text-center">
+  <div class="col">
+    <h2>Years</h2>
+  </div>
+  <div class="col">
+    <h2>Months</h2>
+  </div>
+  <div class="col">
+    <h2>Days</h2>
+  </div>
+  <div class="col">
+    <h2>Hours</h2>
+  </div>
+  <div class="col">
+    <h2>Minutes</h2>
+  </div>
+  <div class="col">
+    <h2>Seconds</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <h2>{{ years }}</h2>
+  </div>
+  <div class="col">
+    <h2>{{ months }}</h2>
+  </div>
+  <div class="col">
+    <h2>{{ days }}</h2>
+  </div>
+  <div class="col">
+    <h2>{{ hours }}</h2>
+  </div>
+  <div class="col">
+    <h2>{{ minutes }}</h2>
+  </div>
+  <div class="col">
+    <h2>{{ seconds }}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col text-center">
+    <button type="button" (click)="clearTimer()" class="btn btn-warning">
+      Clear Timer
+    </button>
+  </div>
+</div>
