@@ -22,9 +22,9 @@ export class RecipeSearchComponent implements OnInit {
   currentLong: any;
   geolocationPosition: any;
 
-  // convertLat: any;
-  // convertLong: any;
-  geocode: string = encodeURIComponent("39.097,-94.58");
+  convertLat: any;
+  convertLong: any;
+  geocode: string =  encodeURIComponent("39.097,-94.58");
 
   constructor(private _http: HttpClient) {
   }
@@ -38,7 +38,7 @@ export class RecipeSearchComponent implements OnInit {
       });
   }
 
-  getVenues() {
+  async getVenues() {
 
     this.recipeValue = this.recipes.nativeElement.value;
     this.placeValue = this.places.nativeElement.value;
@@ -74,14 +74,8 @@ export class RecipeSearchComponent implements OnInit {
 
     if (this.placeValue != null && this.placeValue !== '' && this.recipeValue != null && this.recipeValue !== '') {
 
-      // *** Convert place value into latitude/longitude geocodes
-      // fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.placeValue}.json?access_token=pk.eyJ1Ijoid2luaXZpcyIsImEiOiJja3p6MWlyMjMwNXJsM2RxdzF3d2g1dnVkIn0.VMQsyu3pP6XyahyMKctn2w`)
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     this.convertLat = data.features[0].center[0];
-      //     this.convertLong = data.features[0].center[1];
-      //     this.geocode = encodeURIComponent(`${this.convertLat},${this.convertLong}`);
-      //   });
+      // const geolocation = await this.getGeocodes(this.placeValue);
+      // console.log("out fetch => ", geolocation);
 
       const options = {
         method: 'GET',
@@ -90,33 +84,43 @@ export class RecipeSearchComponent implements OnInit {
           Authorization: 'fsq3GKoQk47nPZ0w1boKmB8FalPYTevOzbAOy4p8m2rWo2w='
         }
       };
-
+      
       fetch(`https://api.foursquare.com/v3/places/nearby?ll=${this.geocode}&query=${this.recipeValue}`, options)
-        .then(response => response.json())
-        .then(data => {
-          (data.results).forEach((result: any) => {
-            const placeResult: IPlace = {
-              name: result.name,
-              location: result.location.formatted_address,
-              uriName: encodeURIComponent(result.name),
-              uriCoordinates: encodeURIComponent(`${result.geocodes.main.latitude},${result.geocodes.main.longitude}`),
-              currentLat: result.geocodes.main.latitude,
-              currentLong: result.geocodes.main.longitude
-            }
-            this.venueList.push(placeResult);
-          })
-        });
+          .then(response => response.json())
+          .then(data => {
+            (data.results).forEach((result: any) => {
+              const placeResult: IPlace = {
+                name: result.name,
+                location: result.location.formatted_address,
+                uriCoordinates: encodeURIComponent(`${result.geocodes.main.latitude},${result.geocodes.main.longitude}`)
+              }
+              this.venueList.push(placeResult);
+            })
+          });
 
 
       /*** FOURSQUARE VERSION 2 - DEPRICATED ***/
-      // const versioning = (new Date()).toISOString().slice(0,10).replace(/-/g,""); //YYYYMMDD
+    //   const versioning = (new Date()).toISOString().slice(0,10).replace(/-/g,""); //YYYYMMDD
       
-      // const options = {method: 'GET', headers: {Accept: 'application/json'}};
+    //   const options = {method: 'GET', headers: {Accept: 'application/json'}};
 
-      // fetch(`https://api.foursquare.com/v2/venues/search?client_id=A2FF55TLAWNKD0DX2NITTQ0JQ5MUGNTPOE2I2PM3IGO2R22O&client_secret=KBCVYJZBO54ZHOG3GNZCVGTJBRPSCJZVPB45UR3QTPC0C23U&query=${this.recipeValue}&near=${this.placeValue}&v=${versioning}`, options)
-      //   .then(response => response.json())
-      //   .then(response => console.log(response))
-      //   .catch(err => console.error(err));
-    }
+    //   fetch(`https://api.foursquare.com/v2/venues/search?client_id=A2FF55TLAWNKD0DX2NITTQ0JQ5MUGNTPOE2I2PM3IGO2R22O&client_secret=KBCVYJZBO54ZHOG3GNZCVGTJBRPSCJZVPB45UR3QTPC0C23U&query=${this.recipeValue}&near=${this.placeValue}&v=${versioning}`, options)
+    //     .then(response => response.json())
+    //     .then(response => console.log(response))
+    //     .catch(err => console.error(err));
+    // }
+  }
+
+  // getGeocodes(location: string) {
+  //     // *** Convert place value into latitude/longitude geocodes
+  //     return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1Ijoid2luaXZpcyIsImEiOiJja3p6MWlyMjMwNXJsM2RxdzF3d2g1dnVkIn0.VMQsyu3pP6XyahyMKctn2w`)
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         this.convertLat = data.features[0].center[0];
+  //         this.convertLong = data.features[0].center[1];
+  //         this.geocode = encodeURIComponent(`${this.convertLat},${this.convertLong}`);
+  //         console.log("in fetch => ", this.geocode);
+  //         return this.geocode;
+  //       });
   }
 }
