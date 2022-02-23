@@ -24,7 +24,7 @@ export class RecipeSearchComponent implements OnInit {
 
   convertLat: any;
   convertLong: any;
-  geocode: string =  encodeURIComponent("39.097,-94.58");
+  geocode: string =  encodeURIComponent("39.097,-94.58"); // Kansas City
 
   constructor(private _http: HttpClient) {
   }
