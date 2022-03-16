@@ -7,13 +7,24 @@
     tools:context=".MainActivity2">
 
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Screen Two"
+        android:text="Welcome to the app!"
         android:layout_margin="20dp"
         android:padding="20dp"
         android:textSize="40dp"
         android:gravity="center"
         />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:text="Logout"
+        android:textSize="40sp" />
 
 </RelativeLayout>
