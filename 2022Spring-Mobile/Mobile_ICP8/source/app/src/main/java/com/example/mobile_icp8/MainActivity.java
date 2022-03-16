@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText username;
     EditText password;
-    Button btn;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        btn = findViewById(R.id.btn);
+        login = findViewById(R.id.login);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (username.getText().toString().equals("user") && password.getText().toString().equals("password")) {

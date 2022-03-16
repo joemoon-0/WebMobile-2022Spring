@@ -1,6 +1,8 @@
-# Mobile Lesson 1: Developing Simple Login Applications for Android
+# ICP 8 - Mobile Lesson 1: Developing Simple Login Applications for Android
 
-## Task: Create a basic login application
+## Joe Moon
+
+### Task: Create a basic login application
 
 a.	The main activity should contain username and password (make suitable changes for the login app!). <br />
 b.	Create the 'Login' button on the login screen<br />
