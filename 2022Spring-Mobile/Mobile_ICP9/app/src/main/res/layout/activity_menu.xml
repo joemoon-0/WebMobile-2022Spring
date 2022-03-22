@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu">
+
+    <TextView
+        android:id="@+id/menuTitle"
+        android:layout_width="269dp"
+        android:layout_height="35dp"
+        android:text="Menu"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menuTitle2"
+        android:layout_width="269dp"
+        android:layout_height="35dp"
+        android:text="Choose a size"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/menuTitle3"
+        android:layout_width="269dp"
+        android:layout_height="35dp"
+        android:text="Choose your toppings"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/peperoni"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/small" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="271dp"
+        android:layout_height="43dp"
+        android:hint="Your Name"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle" />
+
+    <Button
+        android:id="@+id/small"
+        android:layout_width="92dp"
+        android:layout_height="67dp"
+        android:text="Small\n$7.99"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle3"
+        app:layout_constraintEnd_toStartOf="@+id/medium"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle2" />
+
+    <Button
+        android:id="@+id/medium"
+        android:layout_width="92dp"
+        android:layout_height="67dp"
+        android:text="Medium\n$9.99"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle3"
+        app:layout_constraintEnd_toStartOf="@+id/large"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/small"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle2" />
+
+    <Button
+        android:id="@+id/large"
+        android:layout_width="92dp"
+        android:layout_height="67dp"
+        android:text="Large\n$11.99"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/medium"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle2" />
+
+    <CheckBox
+        android:id="@+id/peperoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peperoni"
+        app:layout_constraintBottom_toTopOf="@+id/cheese"
+        app:layout_constraintEnd_toStartOf="@+id/mushroom"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+
+    <CheckBox
+        android:id="@+id/cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extra\nCheese"
+        app:layout_constraintBottom_toTopOf="@+id/summary"
+        app:layout_constraintEnd_toStartOf="@+id/gpepper"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/peperoni" />
+
+    <CheckBox
+        android:id="@+id/mushroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mushroom"
+        app:layout_constraintBottom_toTopOf="@+id/gpepper"
+        app:layout_constraintEnd_toStartOf="@+id/olives"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/peperoni"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+
+    <CheckBox
+        android:id="@+id/gpepper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Green\nPeppers"
+        app:layout_constraintBottom_toTopOf="@+id/summary"
+        app:layout_constraintEnd_toStartOf="@+id/sausage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cheese"
+        app:layout_constraintTop_toBottomOf="@+id/mushroom" />
+
+    <CheckBox
+        android:id="@+id/olives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olives"
+        app:layout_constraintBottom_toTopOf="@+id/sausage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mushroom"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+
+    <CheckBox
+        android:id="@+id/sausage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sausage"
+        app:layout_constraintBottom_toTopOf="@+id/summary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/gpepper"
+        app:layout_constraintTop_toBottomOf="@+id/olives" />
+
+    <Button
+        android:id="@+id/summary"
+        android:layout_width="220dp"
+        android:layout_height="51dp"
+        android:text="Summary"
+        app:layout_constraintBottom_toTopOf="@+id/order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cheese" />
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:text="Complete Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
