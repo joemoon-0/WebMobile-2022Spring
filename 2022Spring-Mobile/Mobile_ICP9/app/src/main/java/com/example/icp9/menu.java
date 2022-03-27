@@ -20,13 +20,14 @@ public class menu extends AppCompatActivity {
     final double MEDIUM_PRICE = 9.99;
     final double LARGE_PRICE = 11.99;
     final double TAX_RATE = 1.07;
-    double subtotal = 0.0;
+    double price = 0.0;
 
     EditText customername;
-    String pizza_size;
+    String pizza_size, total;
+    CheckBox pepperoni, cheese, gpepper, olives, mushroom, sausage;
 
     private NumberPicker quantityPicker;
-    final ArrayList<String> toppings = new ArrayList<>();
+    ArrayList<String> toppings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,60 @@ public class menu extends AppCompatActivity {
         quantityPicker.setMinValue(1);
         quantityPicker.setMaxValue(99);
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            // Reads existing customer options and restores UI to that state
+            customername.setText(extras.getString("name"));
+            quantityPicker.setValue(extras.getInt("quantity"));
+            pizza_size = extras.getString("size");
+            switch (pizza_size) {
+                case "Small":
+                    price = SMALL_PRICE;
+                    break;
+                case "Medium":
+                    price = MEDIUM_PRICE;
+                    break;
+                case "Large":
+                    price = LARGE_PRICE;
+                    break;
+                default:
+                    break;
+            }
+
+            toppings = new ArrayList<String>(extras.getStringArrayList("topping_array"));
+            if (toppings.contains("Pepperoni")) {
+                pepperoni = findViewById(R.id.pepperoni);
+                pepperoni.setChecked(true);
+            }
+            if (toppings.contains("Extra Cheese")) {
+                cheese = findViewById(R.id.cheese);
+                cheese.setChecked(true);
+            }
+            if (toppings.contains("Mushrooms")) {
+                mushroom = findViewById(R.id.mushroom);
+                mushroom.setChecked(true);
+            }
+            if (toppings.contains("Green Peppers")) {
+                gpepper = findViewById(R.id.gpepper);
+                gpepper.setChecked(true);
+            }
+            if (toppings.contains("Olives")) {
+                olives = findViewById(R.id.olives);
+                olives.setChecked(true);
+            }
+            if (toppings.contains("Sausage")) {
+                sausage = findViewById(R.id.sausage);
+                sausage.setChecked(true);
+            }
+        }
+
+        // *** CLICK LISTENERS ***
+
         small.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                subtotal = SMALL_PRICE;
+                price = SMALL_PRICE;
                 pizza_size = "Small";
                 Toast.makeText(menu.this, "Small selected.", Toast.LENGTH_SHORT).show();
             }
@@ -56,7 +107,7 @@ public class menu extends AppCompatActivity {
         medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                subtotal = MEDIUM_PRICE;
+                price = MEDIUM_PRICE;
                 pizza_size = "Medium";
                 Toast.makeText(menu.this, "Medium selected.", Toast.LENGTH_SHORT).show();
             }
@@ -65,7 +116,7 @@ public class menu extends AppCompatActivity {
         large.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                subtotal = LARGE_PRICE;
+                price = LARGE_PRICE;
                 pizza_size = "Large";
                 Toast.makeText(menu.this, "Large selected.", Toast.LENGTH_SHORT).show();
             }
@@ -75,11 +126,11 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menu.this, summary.class);
-                intent.putExtra("name", customername.toString());
+                intent.putExtra("name", customername.getText().toString());
                 intent.putExtra("quantity", quantityPicker.getValue());
                 intent.putExtra("size", pizza_size);
-                intent.putStringArrayListExtra("toppings", getToppings());
-                intent.putExtra("price", calculateTotal(subtotal));
+                intent.putStringArrayListExtra("toppings", toppings);
+                intent.putExtra("price", calculateTotal(price));
                 startActivity(intent);
             }
         });
@@ -87,18 +138,20 @@ public class menu extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(menu.this, "ORDER", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(menu.this, MainActivity.class);
+                intent.putExtra("name", customername.getText().toString());
+                intent.putExtra("quantity", quantityPicker.getValue());
+                intent.putExtra("size", pizza_size);
+                intent.putStringArrayListExtra("toppings", toppings);
+                intent.putExtra("price", calculateTotal(price));
+                startActivity(intent);
             }
         });
     }
 
-    public ArrayList<String> getToppings() {
-        return toppings;
-    }
-
-    public String calculateTotal(double subtotal) {
+    public String calculateTotal(double price) {
         DecimalFormat priceFormat = new DecimalFormat("0.00");
-        return priceFormat.format(subtotal * TAX_RATE * quantityPicker.getValue());
+        return priceFormat.format(price * TAX_RATE * quantityPicker.getValue());
     }
 
     public void onCheckboxClicked(View view) {
