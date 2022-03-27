@@ -10,17 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ICP9">
         <activity
-            android:name=".summary"
-            android:exported="false" />
-        <activity
             android:name=".menu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".summary"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="false" />

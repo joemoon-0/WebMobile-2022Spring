@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="textPersonName"/>
 
     <TextView
         android:id="@+id/menuTitle2"
@@ -30,7 +31,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantity_title" />
+
+    <TextView
+        android:id="@+id/quantity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <NumberPicker
+        android:id="@+id/quantity"
+        android:layout_width="54dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuTitle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/quantity_title"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:background="@color/purple_200" />
 
     <TextView
         android:id="@+id/menuTitle3"
@@ -100,7 +121,8 @@
         app:layout_constraintEnd_toStartOf="@+id/mushroom"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3"
+        android:onClick="onCheckboxClicked" />
 
     <CheckBox
         android:id="@+id/cheese"
@@ -111,7 +133,8 @@
         app:layout_constraintEnd_toStartOf="@+id/gpepper"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pepperoni" />
+        app:layout_constraintTop_toBottomOf="@+id/pepperoni"
+        android:onClick="onCheckboxClicked" />
 
     <CheckBox
         android:id="@+id/mushroom"
@@ -122,7 +145,8 @@
         app:layout_constraintEnd_toStartOf="@+id/olives"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pepperoni"
-        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3"
+        android:onClick="onCheckboxClicked" />
 
     <CheckBox
         android:id="@+id/gpepper"
@@ -133,7 +157,8 @@
         app:layout_constraintEnd_toStartOf="@+id/sausage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cheese"
-        app:layout_constraintTop_toBottomOf="@+id/mushroom" />
+        app:layout_constraintTop_toBottomOf="@+id/mushroom"
+        android:onClick="onCheckboxClicked" />
 
     <CheckBox
         android:id="@+id/olives"
@@ -144,7 +169,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/mushroom"
-        app:layout_constraintTop_toBottomOf="@+id/menuTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/menuTitle3"
+        android:onClick="onCheckboxClicked" />
 
     <CheckBox
         android:id="@+id/sausage"
@@ -155,7 +181,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/gpepper"
-        app:layout_constraintTop_toBottomOf="@+id/olives" />
+        app:layout_constraintTop_toBottomOf="@+id/olives"
+        android:onClick="onCheckboxClicked" />
 
     <Button
         android:id="@+id/summary"
